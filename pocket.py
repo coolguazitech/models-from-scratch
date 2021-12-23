@@ -4,6 +4,14 @@ from sklearn.model_selection import train_test_split
 
 class Pocket:
     def __init__(self, n_iter=1000):
+        """ pocket algorithm implementation
+
+        Parameters
+        ----------
+        n_iter : int, optional (default=1000)
+            The number of iterations to update weights.
+
+        """
         self.n_iter = n_iter
 
     def fit(self, X_train, y_train):

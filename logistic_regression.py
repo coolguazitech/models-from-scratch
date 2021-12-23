@@ -3,7 +3,18 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 class LogisticRegression:
-    def __init__(self, lr=0.01, n_iter=1000):
+    def __init__(self, lr=0.001, n_iter=1000):
+        """ Logistic regression implementation
+
+        Parameters
+        ----------
+        n_iter : int, optional (default=1000)
+            The number of iterations to perform gradient descent.
+
+        lr : float, optional (default=0.001)
+            Determines the step size at each iteration while moving toward a minimum.
+            
+        """
         self.lr = lr
         self.n_iter = n_iter
 

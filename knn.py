@@ -3,7 +3,15 @@ from sklearn import datasets
 from sklearn.model_selection import train_test_split
 
 class KNN:
-    def __init__(self, k):
+    def __init__(self, k=3):
+        """ k nearest neighbors implementation
+
+        Parameters
+        ----------
+        k : int, optional (default=3)
+            The number of nearest points which are candidates for majority vote. 
+            
+        """
         self.k = k
 
     def fit(self, X, y):
