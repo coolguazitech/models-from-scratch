@@ -20,13 +20,13 @@ class LogisticRegression:
 
     def fit(self, X_train, y_train):
         X_train, y_train = X_train.reshape([-1, X_train.shape[-1]]), y_train.reshape([-1])
-        n_points, n_features = X_train.shape[-2], X_train.shape[-1]
+        n_samples, n_features = X_train.shape[-2], X_train.shape[-1]
         self.weights = np.random.normal(0, 1, (n_features,))
         self.bias = np.random.normal(0, 1, (1,))
         
         for _ in range(self.n_iter):
-            dw = X_train.T @ (self._sigmoid(X_train @ self.weights + self.bias) - y_train) / n_points
-            db = np.sum(self._sigmoid(X_train @ self.weights + self.bias) - y_train) / n_points
+            dw = X_train.T @ (self._sigmoid(X_train @ self.weights + self.bias) - y_train) / n_samples
+            db = np.sum(self._sigmoid(X_train @ self.weights + self.bias) - y_train) / n_samples
             self.weights -= self.lr * dw
             self.bias -= self.lr * db
 

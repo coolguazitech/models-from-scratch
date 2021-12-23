@@ -16,16 +16,16 @@ class Pocket:
 
     def fit(self, X_train, y_train):
         X_train, y_train = X_train.reshape([-1, X_train.shape[-1]]), y_train.reshape([-1])
-        n_points, n_features = X_train.shape[-2], X_train.shape[-1]
+        n_samples, n_features = X_train.shape[-2], X_train.shape[-1]
         self.weights = np.random.normal(0, 1, (n_features,))
         self.bias = np.random.normal(0, 1, (1,))
         _w = np.concatenate([self.weights, self.bias], axis=-1)
-        _X = np.hstack([X_train, np.ones([n_points, 1])])
+        _X = np.hstack([X_train, np.ones([n_samples, 1])])
         n_corrects = 0
 
         for _ in range(self.n_iter):
             logits = _X @ _w * y_train >= 0
-            if np.sum(logits) == n_points:
+            if np.sum(logits) == n_samples:
                 self.weights, self.bias = _w[:-1], _w[-1]
                 return
             else:
