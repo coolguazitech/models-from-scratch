@@ -29,8 +29,8 @@ if __name__ == '__main__':
     X, y = iris.data, iris.target
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=1234)
     mean, std = np.mean(X_train, -2), np.std(X_train, -2)
-    X_train = (X_train - mean) / (std + 0.0001)
-    X_test = (X_test - mean) / (std + 0.0001)
+    X_train = (X_train - mean) / (std + 0.00001)
+    X_test = (X_test - mean) / (std + 0.00001)
     clf = KNN(1)
     clf.fit(X_train, y_train)
     acc = clf.evaluate(X_test, y_test)
